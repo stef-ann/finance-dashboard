@@ -1,0 +1,21 @@
+node_modules/
+dist/
+build/
+*.log
+
+# Local data & secrets — never commit
+.env
+.env.local
+packages/server/.env
+packages/server/data/
+packages/server/.secret
+certs/*
+!certs/README.md
+*.pem
+
+# Editor
+.vscode/
+.idea/
+.vs/
+*.user
+.DS_Store

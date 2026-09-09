@@ -1,0 +1,30 @@
+{
+  "name": "finance-dashboard",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Local-first personal finance dashboard with a Chase (Teller) connection and an offline simulation mode.",
+  "workspaces": [
+    "packages/server",
+    "packages/web"
+  ],
+  "scripts": {
+    "dev": "concurrently -k -n server,web -c blue,magenta \"npm:dev:server\" \"npm:dev:web\"",
+    "dev:server": "npm run dev -w @finance/server",
+    "dev:web": "npm run dev -w @finance/web",
+    "build": "npm run build -w @finance/web",
+    "start": "npm run start -w @finance/server",
+    "typecheck": "npm run typecheck -w @finance/server && npm run typecheck -w @finance/web",
+    "reset-db": "npm run reset-db -w @finance/server"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  },
+  "engines": {
+    "node": ">=20.11"
+  },
+  "allowScripts": {
+    "better-sqlite3@12.11.1": true,
+    "esbuild@0.28.2": true,
+    "esbuild@0.25.12": true
+  }
+}
